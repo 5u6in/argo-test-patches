@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hN-t-no-capabilities
+  name: hn-t-no-capabilities
 spec:
   hostNetwork: true
   containers:

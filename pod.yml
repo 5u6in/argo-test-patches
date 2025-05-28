@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hN-t-drop-all-add-net-admin
+  name: hn-t-drop-all-add-net-admin
 spec:
   hostNetwork: true
   containers:

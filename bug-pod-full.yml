@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hN-t-add-sysadmin
+  name: hn-t-add-sysadmin
 spec:
   hostNetwork: true
   containers:
