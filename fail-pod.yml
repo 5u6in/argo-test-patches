@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hostnetwork-false-add-capabilities
+  name: hN-f-addded-sys-admin
 spec:
   hostNetwork: false
   containers:
