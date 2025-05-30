@@ -14,7 +14,7 @@ spec:
       labels:
         app: app
     spec:
-      hostNetwork: true
+      hostNetwork: false
       containers:
       - name: app
         image: busybox
