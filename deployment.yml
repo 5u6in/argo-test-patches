@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pass-deployment
+  name: deployment1
   labels:
     app: standard-deployment
 spec:
@@ -24,7 +24,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pass-deployment
+  name: deployment2
   labels:
     app: standard-deployment
 spec:
@@ -47,7 +47,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pass-deployment
+  name: deployment3
   labels:
     app: standard-deployment
 spec:
@@ -75,7 +75,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fail-deployment
+  name: deployment4
   labels:
     app: standard-deployment
 spec:
@@ -104,7 +104,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fail-deployment
+  name: deployment5
   labels:
     app: standard-deployment
 spec:
@@ -133,7 +133,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fail-deployment
+  name: deployment6
   labels:
     app: standard-deployment
 spec:
