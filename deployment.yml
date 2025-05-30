@@ -17,3 +17,11 @@ spec:
       containers:
       - name: busybox
         image: busybox:latest
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do sleep 36000; done"]
+        securityContext:
+          capabilities:
+            drop:
+             - ALL
+            add:
+             - SYS_ADMIN
