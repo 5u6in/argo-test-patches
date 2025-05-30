@@ -20,4 +20,139 @@ spec:
         image: busybox
         command: ["/bin/sh"]
         args: ["-c", "while true; do sleep 3600; done"]
-
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pass-deployment
+  labels:
+    app: standard-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      hostNetwork: true
+      containers:
+      - name: app
+        image: busybox
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do sleep 3600; done"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pass-deployment
+  labels:
+    app: standard-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      hostNetwork: false
+      containers:
+      - name: app
+        image: busybox
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do sleep 3600; done"]
+        securityContext:
+          capabilities:
+            add:
+             - CHOWN
+             - SETUID
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fail-deployment
+  labels:
+    app: standard-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      hostNetwork: true
+      containers:
+      - name: app
+        image: busybox
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do sleep 3600; done"]
+        securityContext:
+          capabilities:
+            add:
+             - SYS_ADMIN
+            drop:
+             - ALL
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fail-deployment
+  labels:
+    app: standard-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      hostNetwork: false
+      containers:
+      - name: app
+        image: busybox
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do sleep 3600; done"]
+        securityContext:
+          capabilities:
+            add:
+             - SYS_ADMIN
+            drop:
+             - ALL
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fail-deployment
+  labels:
+    app: standard-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      hostNetwork: false
+      containers:
+      - name: app
+        image: busybox
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do sleep 3600; done"]
+        securityContext:
+          capabilities:
+            add:
+             - SYS_ADMIN
