@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment1
+  name: busybox-deployment
   labels:
-    app: busybox
+    app: nginx
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,7 @@ spec:
       labels:
         app: busybox
     spec:
-      hostNetwork: false
       containers:
       - name: busybox
         image: busybox
+
