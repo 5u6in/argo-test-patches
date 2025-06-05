@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: pod1
 spec:
-hostNetwork: false
+  hostNetwork: false
   containers:
   - name: pod1
     image: busybox:latest
@@ -21,7 +21,7 @@ kind: Pod
 metadata:
   name: pod2
 spec:
-hostNetwork: false
+  hostNetwork: false
   containers:
   - name: pod2
     image: busybox:latest
@@ -33,19 +33,26 @@ kind: Pod
 metadata:
   name: pod3
 spec:
-hostNetwork: false
+  hostNetwork: false
   containers:
   - name: pod3
     image: busybox:latest
     command: ["/bin/sh"]
     args: ["-c", "while true; do sleep 360000; done"]
+    securityContext:
+     capabilities:
+      drop:
+       - ALL
+      add:
+       - CHOWN
+    
 ---
 apiVersion: v1
 kind: Pod
 metadata:
   name: pod4
 spec:
-hostNetwork: true
+  hostNetwork: true
   containers:
   - name: pod4
     image: busybox:latest
@@ -57,3 +64,21 @@ hostNetwork: true
        - ALL
       add:
        - NET_ADMIN
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod5
+spec:
+  hostNetwork: true
+  containers:
+  - name: pod5
+    image: busybox:latest
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do sleep 360000; done"]
+    securityContext:
+     capabilities:
+      drop:
+       - ALL
+      add:
+       - SYS_ADMIN
