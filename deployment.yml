@@ -3,7 +3,6 @@ kind: Pod
 metadata:
   name: pod
 spec:
-  hostNetwork: true
   containers:
   - name: my-container
     image: busybox:latest
