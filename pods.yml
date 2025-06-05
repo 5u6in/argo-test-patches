@@ -115,5 +115,7 @@ spec:
      capabilities:
       add:
        - CHOWN
+      drop:
+       - ALL
 
     
