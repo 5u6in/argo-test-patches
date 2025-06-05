@@ -105,6 +105,7 @@ kind: Pod
 metadata:
   name: pod6
 spec:
+  hostNetwork: false
   containers:
   - name: pod6
     image: busybox:latest
