@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: pod
 spec:
-hostNetwork: true
+  hostNetwork: true
   containers:
   - name: my-container
     image: busybox:latest
@@ -14,4 +14,4 @@ hostNetwork: true
       drop:
        - ALL
       add:
-       - SYS_ADMIN
+       - CHOWN
