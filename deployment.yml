@@ -13,4 +13,4 @@ spec:
       drop:
        - ALL
       add:
-       - SYS_ADMIN
+       - CHOWN
