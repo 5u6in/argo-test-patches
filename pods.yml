@@ -110,3 +110,9 @@ spec:
     image: busybox:latest
     command: ["/bin/sh"]
     args: ["-c", "while true; do sleep 360000; done"]
+    securityContext:
+     capabilities:
+      add:
+       - CHOWN
+
+    
