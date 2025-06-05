@@ -99,3 +99,14 @@ spec:
       drop:
       - ALL
       add: ["NET_ADMIN"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod6
+spec:
+  containers:
+  - name: pod6
+    image: busybox:latest
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do sleep 360000; done"]
