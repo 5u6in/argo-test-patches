@@ -113,8 +113,6 @@ spec:
     args: ["-c", "while true; do sleep 360000; done"]
     securityContext:
      capabilities:
-      add:
-       - CHOWN
       drop:
        - ALL
 
